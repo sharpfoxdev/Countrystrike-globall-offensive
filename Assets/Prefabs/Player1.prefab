@@ -234,6 +234,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 256
+  prefab: {fileID: 0}
 --- !u!95 &4979540009381370066
 Animator:
   serializedVersion: 3
@@ -309,8 +310,8 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a416426a-f8d1-4c78-a740-bc1ad157d122
     m_ActionName: Basic/Jump[/Keyboard/w,/Keyboard/upArrow]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Player1
   m_DefaultActionMap: Basic
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

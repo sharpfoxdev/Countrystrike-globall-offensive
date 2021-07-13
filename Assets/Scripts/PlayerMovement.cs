@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     public Transform feet;
     public LayerMask groundLayers;
 
-    
     void Start()
     {
         //PlayerInput = new PlayerInputScript();
