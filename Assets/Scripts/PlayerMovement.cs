@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     float movementX;
     public Transform feet;
     public LayerMask groundLayers;
-
+    private bool facingRight = true;
     void Start()
     {
         //PlayerInput = new PlayerInputScript();
@@ -56,6 +56,14 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (movementX < 0 && facingRight)
+        {
+            Flip();
+        }
+        else if (movementX > 0 && !facingRight)
+        {
+            Flip();
+        }
         Vector2 movement = new Vector2(movementX * speed, rb.velocity.y);
         rb.velocity = movement;
     }
@@ -80,5 +88,10 @@ public class PlayerMovement : MonoBehaviour
         {
             return false;
         }
+    }
+    void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 }
