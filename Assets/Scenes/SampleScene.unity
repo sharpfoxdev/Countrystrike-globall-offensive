@@ -258,13 +258,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c43e52cfa6ed6a4882ac5aa3dca1f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab1: {fileID: 4979540009381370056, guid: 6a9db986acfdedb46b5a2278930ae944,
+  playerPrefab1: {fileID: 1530352198759376472, guid: dee9a1d0de063414da3fbf4056b76aa2,
     type: 3}
-  playerPrefab2: {fileID: 8763881986556116397, guid: ba06166958ec1b7489fc3699ddc06cb3,
+  playerPrefab2: {fileID: 526110448669033206, guid: ba06166958ec1b7489fc3699ddc06cb3,
     type: 3}
-  playerPrefab3: {fileID: 7558924558047405013, guid: 2ef4f51921e00a945bffad89accd9863,
+  playerPrefab3: {fileID: 6052088257018515637, guid: 2ef4f51921e00a945bffad89accd9863,
     type: 3}
-  playerPrefab4: {fileID: 5613406962424801937, guid: 2ceda699913758f4983b72637c936791,
+  playerPrefab4: {fileID: 1327117752223831388, guid: 2ceda699913758f4983b72637c936791,
     type: 3}
 --- !u!4 &415297299
 Transform:
