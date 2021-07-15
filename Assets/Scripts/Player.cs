@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public int SpawnDelay = 2;
     Renderer rend;
     Rigidbody2D rb;
-    BoxCollider2D bc;
+    CircleCollider2D bc;
     Weapon wp;
     public void GetHit()
     {
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            StartCoroutine(Respawn());
+            //StartCoroutine(Respawn());
         }
     }
     public IEnumerator Respawn()
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     {
         rend = gameObject.GetComponent<Renderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-        bc = gameObject.GetComponent<BoxCollider2D>();
+        bc = gameObject.GetComponent<CircleCollider2D>();
         wp = gameObject.GetComponent<Weapon>();
     }
 

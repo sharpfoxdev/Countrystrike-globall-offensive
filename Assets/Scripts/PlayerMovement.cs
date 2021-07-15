@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        //Debug.Log("moving");
         movementX = context.ReadValue<float>();
     }
     public void OnJump(InputAction.CallbackContext context)
@@ -93,5 +94,12 @@ public class PlayerMovement : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+    public void FaceRight()
+    {
+        if (!facingRight)
+        {
+            Flip();
+        }
     }
 }
