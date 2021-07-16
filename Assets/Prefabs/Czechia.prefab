@@ -191,6 +191,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6461875112160562825}
   - component: {fileID: 2261774739451589708}
+  - component: {fileID: 9069808763815848441}
+  - component: {fileID: 795140635452556089}
   m_Layer: 0
   m_Name: eyesHappy
   m_TagString: Untagged
@@ -251,7 +253,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: bd86afc55369aa943bff95e4da8741bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ca34f079bbed7b4fb90be09226a05bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -262,6 +264,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9069808763815848441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338649919834122043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: de62eb2a756824a42ac20491e4701aa2,
+    type: 2}
+--- !u!114 &795140635452556089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338649919834122043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: 1.2684659e-34
+  m_labelHash: 1.4734983e+11
 --- !u!1 &2251055627191235048
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +337,8 @@ GameObject:
   - component: {fileID: 3232280295972441004}
   - component: {fileID: 289049079663299424}
   - component: {fileID: 1579139951015921085}
+  - component: {fileID: -2264698808412222100}
+  - component: {fileID: -4525740727889141176}
   m_Layer: 0
   m_Name: Czechia
   m_TagString: Untagged
@@ -541,6 +573,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lives: 5
   SpawnDelay: 2
+--- !u!114 &-2264698808412222100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572610342718541486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CategoryHash: -9.935391e+17
+  m_labelHash: 1.5274332e-29
+--- !u!114 &-4525740727889141176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572610342718541486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29cff538c195c249b69c6f2236de67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpriteLibraryAsset: {fileID: 11400000, guid: de62eb2a756824a42ac20491e4701aa2,
+    type: 2}
 --- !u!1 &5972553101572651381
 GameObject:
   m_ObjectHideFlags: 0

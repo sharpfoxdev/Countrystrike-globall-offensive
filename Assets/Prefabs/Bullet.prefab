@@ -135,6 +135,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   rb: {fileID: 0}
-  SpawnDelay: 1
-  playerManager: {fileID: 5184576296958748267, guid: cae1e26e2f4f5bf418fbf34f5f55d5be,
-    type: 3}
