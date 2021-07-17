@@ -9,14 +9,29 @@ public class ak47 : MonoBehaviour
     private float cooldown = 2;
     private float cooldownTimer;
     bool isShooting;
+    public int ammo = 6;
+    int currentAmmo;
     public void Shoot()
     {
-        float speedBefore = BulletPrefab.GetComponent<Bullet>().speed;
-        BulletPrefab.GetComponent<Bullet>().speed = 45f; // this is changing the prefab!!!
-        Debug.Log(BulletPrefab.GetComponent<Bullet>().speed);
-        Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-        BulletPrefab.GetComponent<Bullet>().speed = speedBefore;
+        if(currentAmmo > 0)
+        {
+            float speedBefore = BulletPrefab.GetComponent<Bullet>().speed;
+            BulletPrefab.GetComponent<Bullet>().speed = 45f; // this is changing the prefab!!!
+            Debug.Log(BulletPrefab.GetComponent<Bullet>().speed);
+            Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+            BulletPrefab.GetComponent<Bullet>().speed = speedBefore;
+            currentAmmo--;
+        }
+        
 
+    }
+    void Start()
+    {
+        currentAmmo = ammo;
+    }
+    public void AddAmmo()
+    {
+        currentAmmo += ammo;
     }
     IEnumerator ShootOneBullet(int depth, int currentDepth)
     {

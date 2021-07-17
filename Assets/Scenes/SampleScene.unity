@@ -783,6 +783,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1437635321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1437635322}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1437635322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437635321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.353922, y: 2.0238965, z: -0.8105469}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1539095259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1252,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5184576296958748264, guid: cae1e26e2f4f5bf418fbf34f5f55d5be,
+        type: 3}
+      propertyPath: playerPrefab1
+      value: 
+      objectReference: {fileID: 7575386089084905408, guid: 67969eac81e655a4a8f46f7bc3095450,
+        type: 3}
+    - target: {fileID: 5184576296958748264, guid: cae1e26e2f4f5bf418fbf34f5f55d5be,
+        type: 3}
+      propertyPath: playerPrefab2
+      value: 
+      objectReference: {fileID: 7575386089084905408, guid: 67969eac81e655a4a8f46f7bc3095450,
+        type: 3}
+    - target: {fileID: 5184576296958748264, guid: cae1e26e2f4f5bf418fbf34f5f55d5be,
+        type: 3}
+      propertyPath: playerPrefab3
+      value: 
+      objectReference: {fileID: 7575386089084905408, guid: 67969eac81e655a4a8f46f7bc3095450,
+        type: 3}
+    - target: {fileID: 5184576296958748264, guid: cae1e26e2f4f5bf418fbf34f5f55d5be,
+        type: 3}
+      propertyPath: playerPrefab4
+      value: 
+      objectReference: {fileID: 7575386089084905408, guid: 67969eac81e655a4a8f46f7bc3095450,
+        type: 3}
     - target: {fileID: 5184576296958748264, guid: cae1e26e2f4f5bf418fbf34f5f55d5be,
         type: 3}
       propertyPath: numberOfPlayers

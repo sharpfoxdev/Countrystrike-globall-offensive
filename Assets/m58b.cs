@@ -9,11 +9,26 @@ public class m58b : MonoBehaviour
     public Transform FirePoint3;
 
     public GameObject BulletPrefab;
+
+    public int ammo = 4;
+    int currentAmmo;
+
     public void Shoot()
     {
-        Instantiate(BulletPrefab, FirePoint1.position, FirePoint1.rotation);
-        Instantiate(BulletPrefab, FirePoint2.position, FirePoint2.rotation);
-        Instantiate(BulletPrefab, FirePoint3.position, FirePoint3.rotation);
-
+        if(currentAmmo > 0)
+        {
+            Instantiate(BulletPrefab, FirePoint1.position, FirePoint1.rotation);
+            Instantiate(BulletPrefab, FirePoint2.position, FirePoint2.rotation);
+            Instantiate(BulletPrefab, FirePoint3.position, FirePoint3.rotation);
+            currentAmmo--;
+        }
+    }
+    void Start()
+    {
+        currentAmmo = ammo;
+    }
+    public void AddAmmo()
+    {
+        currentAmmo += ammo;
     }
 }
