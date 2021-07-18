@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -48,7 +49,15 @@ public class MultiplayerManager : MonoBehaviour
 
         yield return new WaitForSeconds(respawnTime);//makes player disappear for a bit before respawning him
 
-        player.transform.position = new Vector2(Random.Range(-15f, 15f), Random.Range(-8f, 8f)); //random place in map
+        GameObject gameArea = GameObject.FindGameObjectWithTag("GameArea");
+        RectTransform rt = gameArea.GetComponent<RectTransform>();
+        Debug.Log(rt.transform.position);
+        Debug.Log(rt.rect.xMin);
+        Debug.Log(rt.rect.yMin);
+        Debug.Log(rt.rect.yMax);
+
+        player.transform.position = new Vector2(Random.Range(rt.rect.xMin, rt.rect.xMax), Random.Range(rt.rect.yMin, rt.rect.yMax)); //random place in game area
+        //player.transform.position = new Vector2(Random.Range(-15f, 15f), Random.Range(-8f, 8f)); 
         player.GetComponent<PlayerMovement>().FaceRight(); //making him face right, otherwise he can sometimes move in the oposite direction than he is facing after respawning
 
         PlayerInput.Instantiate(player, controlScheme: ctrlscheme, pairWithDevice: Keyboard.current);

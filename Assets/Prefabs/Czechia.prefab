@@ -98,6 +98,7 @@ MonoBehaviour:
   FirePoint: {fileID: 4538617945385651816}
   BulletPrefab: {fileID: 8594375147508812390, guid: adf1548af29be954cb020e37f5ce1ac9,
     type: 3}
+  ammo: 6
 --- !u!1 &1004601680381245064
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +523,7 @@ GameObject:
   - component: {fileID: 2696306710301147287}
   - component: {fileID: 6034176572843862615}
   m_Layer: 0
-  m_Name: eyesHappy
+  m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,6 +753,7 @@ MonoBehaviour:
   FirePoint3: {fileID: 5056055455786795439}
   BulletPrefab: {fileID: 8594375147508812390, guid: adf1548af29be954cb020e37f5ce1ac9,
     type: 3}
+  ammo: 4
 --- !u!1 &6596230128223655394
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,7 +945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 13
-  jump: 27
+  jump: 33
   feet: {fileID: 1975018641706137750}
   groundLayers:
     serializedVersion: 2
