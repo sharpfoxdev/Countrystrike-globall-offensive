@@ -23,8 +23,11 @@ public class Bullet : MonoBehaviour
         if (player != null)
         {
             player.GetHit();
-            GameObject playerManager = GameObject.Find("PlayerManager");
-            playerManager.GetComponent<MultiplayerManager>().DisappearPlayer(player.gameObject);
+            if (player != null)
+            {
+                GameObject playerManager = GameObject.Find("PlayerManager");
+                playerManager.GetComponent<MultiplayerManager>().DisappearPlayer(player.gameObject);
+            }    
         }
         Destroy(gameObject);
     }
