@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.PlayerLoop;
 
 public class Weapon : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class Weapon : MonoBehaviour
         currentWeapon = weapons[weaponIndex];
         currentWeapon.SetActive(true);
     }
+
     public void OnShoot(InputAction.CallbackContext context)
     {
         if (context.action.triggered)
@@ -65,5 +66,24 @@ public class Weapon : MonoBehaviour
         }
         currentWeapon = weapons[weaponIndex];
         currentWeapon.SetActive(true);
+    }
+    public void ReloadWeapon(string weapon)
+    {
+        while(currentWeapon.name != weapon) //change to the weapon we picked, otherwise it gives null ref error
+        {
+            ChangeWeapon();
+        }
+        switch (weapon)
+        {
+
+            case "ak47":
+                currentWeapon.GetComponent<ak47>().AddAmmo();
+                break;
+            case "m58b":
+                currentWeapon.GetComponent<m58b>().AddAmmo();
+                break;
+            default:
+                break;
+        }
     }
 }

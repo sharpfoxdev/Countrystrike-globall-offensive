@@ -8,6 +8,7 @@ TagManager:
   - PlayerManager
   - GameArea
   - SkinSelector
+  - Spawner
   layers:
   - Default
   - TransparentFX
