@@ -31,8 +31,8 @@ public class Weapon : MonoBehaviour
         {
             switch (currentWeapon.name)
             {
-                case "ak47":
-                    currentWeapon.GetComponent<ak47>().Shoot();
+                case "AK47":
+                    currentWeapon.GetComponent<AK47>().Shoot();
                     break;
                 case "glock":
                     currentWeapon.GetComponent<glock>().Shoot();
@@ -76,8 +76,8 @@ public class Weapon : MonoBehaviour
         switch (weapon)
         {
 
-            case "ak47":
-                currentWeapon.GetComponent<ak47>().AddAmmo();
+            case "AK47":
+                currentWeapon.GetComponent<AK47>().AddAmmo();
                 break;
             case "m58b":
                 currentWeapon.GetComponent<m58b>().AddAmmo();

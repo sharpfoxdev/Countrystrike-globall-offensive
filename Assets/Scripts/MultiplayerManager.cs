@@ -5,27 +5,42 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
+/// <summary>
+/// Manages players, their respawning and handles gameOver
+/// </summary>
 public class MultiplayerManager : MonoBehaviour
 {
-    public float respawnTime = 1;
-    //public int numberOfPlayers = 4;
-    private string[] controlSchemes = { "Player1", "Player2", "Player3", "Player4" };
-    public List<GameObject> players = new List<GameObject>();
+    [SerializeField]
+    float respawnTime = 1;
+    [SerializeField]
+    List<GameObject> players = new List<GameObject>();
+    [SerializeField]
     public GameObject MainMenu;
-    public int PlayerCounter;
-    //private List<GameObject> players = new List<GameObject>(){ playerPrefab1, playerPrefab2 };
+    public int PlayerCounter { get; set; }
 
-    // Start is called before the first frame update
-    public void Init()
+    GameObject gameArea { get; set; }
+    string[] controlSchemes { get; set; } = { "Player1", "Player2", "Player3", "Player4" };
+
+    /// <summary>
+    /// Handles initialisation of players and linking with control schemes on one keyboard
+    /// </summary>
+    /// <param name="players">List of players to initialise with already set skins</param>
+    public void Init(List<GameObject> players)
     {
+        this.players = players;
         PlayerCounter = players.Count;
         for (int i = 0; i < players.Count; i++)
         {
-            PlayerInput.Instantiate(players[i], controlScheme: controlSchemes[i], pairWithDevice: Keyboard.current);
+            PlayerInput.Instantiate(players[i], controlScheme: controlSchemes[i], pairWithDevice: Keyboard.current); //manually sets up control schemes
         }
     }
+
+    /// <summary>
+    /// Checks for game over every frame
+    /// </summary>
     void Update()
     {
+        //destroys the last player and brings us back to main menu
         if(PlayerCounter <= 1)
         {
             foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player"))
@@ -35,7 +50,11 @@ public class MultiplayerManager : MonoBehaviour
             MainMenu.SetActive(true);
         }
     }
-    public void DisappearPlayer(GameObject player)
+    /// <summary>
+    /// Manages dissapearing of player, after he gets hit
+    /// </summary>
+    /// <param name="player">Player to disappear</param>
+    public void DisappearPlayer(GameObject player) //after getting shot
     {
         StartCoroutine(Respawn(player.gameObject));
     }
@@ -43,18 +62,12 @@ public class MultiplayerManager : MonoBehaviour
     {
         PlayerInput pl = player.GetComponent<PlayerInput>(); //copying stuff to create players copy (beacuse the new input system is a garbage and it dissconects keyboard and bindings when player disappears)
         string ctrlscheme = pl.currentControlScheme;
-        Debug.Log(ctrlscheme);
 
         player.SetActive(false); //player disappears
-
         yield return new WaitForSeconds(respawnTime);//makes player disappear for a bit before respawning him
 
-        GameObject gameArea = GameObject.FindGameObjectWithTag("GameArea");
         RectTransform rt = gameArea.GetComponent<RectTransform>();
-        Debug.Log(rt.transform.position);
-        Debug.Log(rt.rect.xMin);
-        Debug.Log(rt.rect.yMin);
-        Debug.Log(rt.rect.yMax);
+
         if(player != null)//it kept throwing null ref error here, cuz sometimes I hit the player several times and it stopped already existing
         {
             player.transform.position = new Vector2(Random.Range(rt.rect.xMin, rt.rect.xMax), Random.Range(rt.rect.yMin, rt.rect.yMax)); //random place in game area
@@ -65,5 +78,9 @@ public class MultiplayerManager : MonoBehaviour
             Destroy(player); //creating copy and deleting disfunctional original
         }
         
+    }
+    void Start()
+    {
+        gameArea = GameObject.FindGameObjectWithTag("GameArea");
     }
 }

@@ -16,12 +16,12 @@ MonoBehaviour:
   - m_Name: PlayerSkin
     m_Hash: -581133271
     m_CategoryList:
+    - m_Name: None
+      m_Hash: -542986255
+      m_Sprite: {fileID: 0}
     - m_Name: Czechia
       m_Hash: -231135915
       m_Sprite: {fileID: 21300000, guid: 7fd73336e0836304aaf422d3c1bc7eff, type: 3}
-    - m_Name: Germany
-      m_Hash: -1793738569
-      m_Sprite: {fileID: 21300000, guid: f502d0da4c6a10b45ac1559ec82ca80e, type: 3}
     - m_Name: Polska
       m_Hash: 1037382872
       m_Sprite: {fileID: 21300000, guid: 6875df1c5a97ac744ba1d2044af23299, type: 3}
@@ -37,9 +37,9 @@ MonoBehaviour:
     - m_Name: Ukraine
       m_Hash: 261809775
       m_Sprite: {fileID: 21300000, guid: 49471b8fc25559a41a179933ff1e7ec6, type: 3}
-    - m_Name: None
-      m_Hash: -542986255
-      m_Sprite: {fileID: 0}
+    - m_Name: Germany
+      m_Hash: -1793738569
+      m_Sprite: {fileID: 21300000, guid: f502d0da4c6a10b45ac1559ec82ca80e, type: 3}
   - m_Name: Eyes
     m_Hash: 120101800
     m_CategoryList:

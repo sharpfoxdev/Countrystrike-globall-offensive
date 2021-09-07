@@ -2,46 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ak47 : MonoBehaviour
+/// <summary>
+/// Small amount of ammo but speedy bullets
+/// </summary>
+public class AK47 : MonoBehaviour
 {
     public Transform FirePoint;
     public GameObject BulletPrefab;
-    private float cooldown = 2;
-    private float cooldownTimer;
-    bool isShooting;
-    public int ammo = 6;
-    public int currentAmmo;
+    public int MaxAmmo = 6;
+    int currentAmmo;
+    float bulletSpeed = 45f;
+    public readonly WeaponsEnum weapon = WeaponsEnum.AK47;
+
+    /// <summary>
+    /// Spawns bullet and makes it move in the correct direction
+    /// </summary>
     public void Shoot()
     {
         if(currentAmmo > 0)
         {
-            float speedBefore = BulletPrefab.GetComponent<Bullet>().speed;
-            BulletPrefab.GetComponent<Bullet>().speed = 45f; // this is changing the prefab!!!
-            Debug.Log(BulletPrefab.GetComponent<Bullet>().speed);
-            Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-            BulletPrefab.GetComponent<Bullet>().speed = speedBefore;
+            GameObject newBullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+            newBullet.GetComponent<Bullet>().speed = bulletSpeed;
             currentAmmo--;
         }
-        
-
     }
+
+    /// <summary>
+    /// Called at start, to set amount off ammunition of AK47 to 0
+    /// </summary>
     void Start()
     {
         currentAmmo = 0;
     }
+
+    /// <summary>
+    /// Adds ammo when AK47 is picked on map
+    /// </summary>
     public void AddAmmo()
     {
-        currentAmmo += ammo;
-    }
-    IEnumerator ShootOneBullet(int depth, int currentDepth)
-    {
-        if(currentDepth >= depth)
-        {
-            
-        }
-        yield return new WaitForSeconds(1f);
-        
-        Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-        StartCoroutine(ShootOneBullet(depth, currentDepth++));
+        currentAmmo += MaxAmmo;
     }
 }

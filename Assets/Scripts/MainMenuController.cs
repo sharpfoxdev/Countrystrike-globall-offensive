@@ -4,82 +4,109 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Experimental.U2D.Animation;
+using UnityEngine.InputSystem;
 
+/// <summary>
+/// Controls main menu
+/// </summary>
 public class MainMenuController : MonoBehaviour
 {
     [SerializeField]
     int numberOfPlayers = 4;
     [SerializeField]
     GameObject playerPrefab;
-    SpriteLibrary spriteLibrary;
     [SerializeField]
     SkinSelector skinSelector = default;
-
-    List<GameObject> players = new List<GameObject>();
-    SpriteLibraryAsset libraryAsset => spriteLibrary.spriteLibraryAsset;
     [SerializeField]
     GameObject controlsMenu;
+    [SerializeField]
+    GameObject playerManager;
 
-    public void AddUISkinSelector(SpriteResolver resolver, int playerNUmber)
-    {
-        string[] labels = libraryAsset.GetCategorylabelNames("PlayerSkin").ToArray();
-        SkinSelector selector = Instantiate(skinSelector, transform);
-        selector.Init(playerNUmber, resolver, labels);
-    }
-    private void Start()
-    {
-        spriteLibrary = playerPrefab.GetComponentInChildren<SpriteLibrary>();
+    SpriteLibrary spriteLibrary = default;
+    List<GameObject> dummyPlayers = new List<GameObject>(); //used to set up skins, further set up of players is done in Multiplayer manager (linking with control schemes)
+    SpriteLibraryAsset libraryAsset;
 
-        for (int i = 0; i < numberOfPlayers; i++)
-        {
-            GameObject player = Instantiate(playerPrefab);
-            player.SetActive(false); //so it doesnt render
-            player.GetComponent<Player>().PlayerNumber = i;
-            AddUISkinSelector(player.GetComponentInChildren<SpriteResolver>(), i);
-            players.Add(player);
-        }
+    /// <summary>
+    /// Sets up sprite library, is called right before OnEnable
+    /// </summary>
+    private void Awake()
+    {
+        Debug.Log("Start enabled");
+        spriteLibrary = playerPrefab.GetComponentInChildren<SpriteLibrary>(); //fetches sprite library (list of sprites for given player)
+        libraryAsset = spriteLibrary.spriteLibraryAsset;
     }
+
+    /// <summary>
+    /// Called after in the beginning and after gameOver to set up menu, spawn characters and set their 
+    /// </summary>
     public void OnEnable()
     {
-        GameObject[] selectors = GameObject.FindGameObjectsWithTag("SkinSelector");
-        foreach(GameObject selector in selectors)
+        GameObject[] selectorsDummy = GameObject.FindGameObjectsWithTag("SkinSelector");
+        foreach (GameObject selector in selectorsDummy) //so that we delete old SkinSelectors from last game, otherwise, we would create new ones over old ones
         {
             Destroy(selector);
         }
-        players.Clear();
+        dummyPlayers.Clear();
         for (int i = 0; i < numberOfPlayers; i++)
         {
             GameObject player = Instantiate(playerPrefab);
             player.SetActive(false); //so it doesnt render
             player.GetComponent<Player>().PlayerNumber = i;
-            AddUISkinSelector(player.GetComponentInChildren<SpriteResolver>(), i);
-            players.Add(player);
+
+            //sprite resolver chooses sprite from sprite library, it is in the child Body of Player
+            AddUISkinSelector(player.GetComponentInChildren<SpriteResolver>(), i); //so every player changes sprites separately according to what's chosen in the menu
+            dummyPlayers.Add(player);
         }
     }
+
+
+    /// <summary>
+    /// Creates list of drop down menus to choose skins from
+    /// </summary>
+    /// <param name="resolver">Takes care of resolving which sprite froom SpriteLibrary should be used</param>
+    /// <param name="playerNUmber">Player's number to distinguish between players</param>
+    public void AddUISkinSelector(SpriteResolver resolver, int playerNUmber)
+    {
+        string[] labels = libraryAsset.GetCategorylabelNames("PlayerSkin").ToArray(); //gets labels from library of sprites
+        SkinSelector selector = Instantiate(skinSelector, transform);
+        selector.Init(playerNUmber, resolver, labels);
+    }
+
+
+
+    /// <summary>
+    /// Sets up new game
+    /// </summary>
     public void PlayButtonClicked()
     {
-        for (int i = players.Count - 1; i >= 0; i--)//going in reverse, because I am deleting from list while iterating it
+        for (int i = dummyPlayers.Count - 1; i >= 0; i--)//going in reverse, because I am deleting from list while iterating it, which messes up indexes when iterating normally
         {
-            if (players[i].GetComponentInChildren<SpriteResolver>().GetLabel() == "None"){
-                GameObject player = players[i];
-                players.RemoveAt(i);
+            if (dummyPlayers[i].GetComponentInChildren<SpriteResolver>().GetLabel() == "None"){ //we delete players that we don't want to play with
+                GameObject player = dummyPlayers[i];
+                dummyPlayers.RemoveAt(i);
                 Destroy(player);
             }
         }
-        GameObject playerManager = GameObject.Find("PlayerManager");
         MultiplayerManager multiplayerManager = playerManager.GetComponent<MultiplayerManager>();
-        multiplayerManager.players = players;
-        multiplayerManager.Init();
-        foreach(GameObject player in players)
+        multiplayerManager.Init(dummyPlayers); 
+        foreach(GameObject player in dummyPlayers) //destroys dummy players, otherwise there would be copies, as they will be instantiated once more with control schemes in MultiplayerManager
         {
             Destroy(player);
         }
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); //shows game area
     }
+
+    /// <summary>
+    /// Shuts down the application
+    /// </summary>
     public void ExitButtonClicked()
     {
         Application.Quit();
     }
+
+    /// <summary>
+    /// Goes to controls menu
+    /// </summary>
     public void ControlsButtonClicked()
     {
         controlsMenu.SetActive(true);

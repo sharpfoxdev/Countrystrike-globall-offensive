@@ -5,21 +5,32 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Handles moving of player
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-    //private PlayerInputScript PlayerInput;
-    Rigidbody2D rb;
     public float speed;
     public float jump = 20f;
-    float movementX;
     public Transform feet;
     public LayerMask groundLayers;
+
     private bool facingRight = true;
+    float movementX;
+    Rigidbody2D rb;
+
+    /// <summary>
+    /// Gets info needed (rigidbody)
+    /// </summary>
     void Start()
     {
         //PlayerInput = new PlayerInputScript();
         rb = GetComponent<Rigidbody2D>();
     }
+
+    /// <summary>
+    /// Not currently in use
+    /// </summary>
     void OnEnable()
     {
         //PlayerInput.Enable();
@@ -30,11 +41,19 @@ public class PlayerMovement : MonoBehaviour
     }
     // Update is called once per frame
 
+    /// <summary>
+    /// Gets triggered, when we press keys for move
+    /// </summary>
+    /// <param name="context">Info from input manager</param>
     public void OnMove(InputAction.CallbackContext context)
     {
-        //Debug.Log("moving");
         movementX = context.ReadValue<float>();
     }
+
+    /// <summary>
+    /// Gets triggered, when we press button to jump
+    /// </summary>
+    /// <param name="context"></param>
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.action.triggered)
@@ -42,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
     }
+
+    /// <summary>
+    /// Not currently in use, one of the prototypes of moving
+    /// </summary>
     void Update()
     {
         //movementX = PlayerInput.Basic.Movement.ReadValue<float>();
@@ -55,9 +78,13 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }*/
     }
+
+    /// <summary>
+    /// Handles moving of player
+    /// </summary>
     void FixedUpdate()
     {
-        if (movementX < 0 && facingRight)
+        if (movementX < 0 && facingRight) //starts moving in the opoite direction
         {
             Flip();
         }
@@ -68,6 +95,10 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movement = new Vector2(movementX * speed, rb.velocity.y);
         rb.velocity = movement;
     }
+
+    /// <summary>
+    /// Jumps player
+    /// </summary>
     void Jump()
     {
         if (TouchesGround())
@@ -78,9 +109,14 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
+
+    /// <summary>
+    /// Checks, if we are touching ground, so we dont jump till infinity
+    /// </summary>
+    /// <returns>True if we touch ground by feet</returns>
     bool TouchesGround()
     {
-        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.5f, groundLayers);//what, how far with what
+        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.5f, groundLayers);
         if (groundCheck != null)
         {
             return true;
@@ -90,11 +126,19 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
     }
+
+    /// <summary>
+    /// Makes player face the other way around, incluting weapon
+    /// </summary>
     void Flip()
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
+
+    /// <summary>
+    /// Sets player to face right
+    /// </summary>
     public void FaceRight()
     {
         if (!facingRight)

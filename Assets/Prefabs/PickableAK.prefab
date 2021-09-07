@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4662005615950564763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5213141, y: -2.6754742, z: 0}
+  m_LocalPosition: {x: 0.24754, y: -4.253969, z: 0}
   m_LocalScale: {x: 1.6645246, y: 1.6464326, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1272ec69eeba3e64ead7d4f319f360e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunSpawner: {fileID: 0}
 --- !u!50 &8203805000041330160
 Rigidbody2D:
   serializedVersion: 4
