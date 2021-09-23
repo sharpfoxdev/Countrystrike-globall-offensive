@@ -5,22 +5,19 @@ using UnityEngine;
 /// <summary>
 /// Weapon with little ammo but spawns three bullets at once
 /// </summary>
-public class m58b : MonoBehaviour
+public class m58b : Gun
 {
     public Transform FirePoint1;
     public Transform FirePoint2;
     public Transform FirePoint3;
 
-    public GameObject BulletPrefab;
-
     public int ammo = 4;
     public int currentAmmo;
-    public readonly WeaponsEnum weapon = WeaponsEnum.M58B;
 
     /// <summary>
     /// Spawns three bullets in correct firepoints
     /// </summary>
-    public void Shoot()
+    public override void Shoot()
     {
         if(currentAmmo > 0)
         {
@@ -33,15 +30,20 @@ public class m58b : MonoBehaviour
     /// <summary>
     /// Sets ammo to 0 in the beginning
     /// </summary>
-    void Start()
+    void Awake()
     {
         currentAmmo = 0;
+        Weapon = WeaponsEnum.M58B;
     }
     /// <summary>
     /// Called with player pics m58b bonus and adds ammo
     /// </summary>
     public void AddAmmo()
     {
+        Debug.Log("Called Add Ammo");
+        Debug.Log(currentAmmo);
+        Debug.Log(ammo);
         currentAmmo += ammo;
+        Debug.Log(currentAmmo);
     }
 }

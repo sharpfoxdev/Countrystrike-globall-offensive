@@ -5,7 +5,7 @@ using UnityEngine.XR.WSA.Input;
 //using UnityEngine.XR.WSA.Input;
 
 /// <summary>
-/// Class cont
+/// Class for player
 /// </summary>
 public class Player : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public int SpawnDelay = 2; //not used currently
     public string PlayerName;
     public int PlayerNumber;
+    public int AmountOfBulletsInCollider = 0; //fixing bug that when player is hit by multiple bullets at once, he respawns also several times
     private GameObject multiplayerManager;
 
     /// <summary>
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     public void GetHit()
     {
         Lives--;
+        AmountOfBulletsInCollider++;
         if(Lives <= 0) //totally dies and not respawns again
         {
             multiplayerManager.GetComponent<MultiplayerManager>().PlayerCounter--; //decreases counter of total amount of players on the map

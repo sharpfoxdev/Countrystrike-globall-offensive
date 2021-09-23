@@ -29,11 +29,11 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         //Debug.Log(hitInfo.name);
-        Player player = hitInfo.GetComponent<Player>(); //try to guess is what I hit was a player
+        Player player = hitInfo.GetComponent<Player>(); //try to guess if what I hit was a player
         if (player != null) //if it was player then he gets hit
         {
             player.GetHit();
-            if (player != null) //if the player is not dead, then make him disappear for a few seconds
+            if (player != null && player.GetComponent<Player>().AmountOfBulletsInCollider == 1) //if the player is not dead, then make him disappear for a few seconds
             {
                 GameObject playerManager = GameObject.FindGameObjectWithTag("PlayerManager");
                 playerManager.GetComponent<MultiplayerManager>().DisappearPlayer(player.gameObject);

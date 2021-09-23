@@ -73,7 +73,7 @@ public class MultiplayerManager : MonoBehaviour
             player.transform.position = new Vector2(Random.Range(rt.rect.xMin, rt.rect.xMax), Random.Range(rt.rect.yMin, rt.rect.yMax)); //random place in game area
                                                                                                                                          //player.transform.position = new Vector2(Random.Range(-15f, 15f), Random.Range(-8f, 8f)); 
             player.GetComponent<PlayerMovement>().FaceRight(); //making him face right, otherwise he can sometimes move in the oposite direction than he is facing after respawning
-            
+            player.GetComponent<Player>().AmountOfBulletsInCollider = 0; //setting up amount of bullets back to zero, as we are creating new copy of player based on this one
             PlayerInput.Instantiate(player, controlScheme: ctrlscheme, pairWithDevice: Keyboard.current);
             Destroy(player); //creating copy and deleting disfunctional original
         }

@@ -5,19 +5,17 @@ using UnityEngine;
 /// <summary>
 /// Small amount of ammo but speedy bullets
 /// </summary>
-public class AK47 : MonoBehaviour
+public class AK47 : Gun
 {
     public Transform FirePoint;
-    public GameObject BulletPrefab;
     public int MaxAmmo = 6;
     int currentAmmo;
     float bulletSpeed = 45f;
-    public readonly WeaponsEnum weapon = WeaponsEnum.AK47;
 
     /// <summary>
     /// Spawns bullet and makes it move in the correct direction
     /// </summary>
-    public void Shoot()
+    public override void Shoot()
     {
         if(currentAmmo > 0)
         {
@@ -30,9 +28,10 @@ public class AK47 : MonoBehaviour
     /// <summary>
     /// Called at start, to set amount off ammunition of AK47 to 0
     /// </summary>
-    void Start()
+    void Awake()
     {
         currentAmmo = 0;
+        Weapon = WeaponsEnum.AK47;
     }
 
     /// <summary>
