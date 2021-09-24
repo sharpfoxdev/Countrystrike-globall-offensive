@@ -31,7 +31,6 @@ public class MainMenuController : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        Debug.Log("Start enabled");
         spriteLibrary = playerPrefab.GetComponentInChildren<SpriteLibrary>(); //fetches sprite library (list of sprites for given player)
         libraryAsset = spriteLibrary.spriteLibraryAsset;
     }
@@ -52,7 +51,7 @@ public class MainMenuController : MonoBehaviour
             GameObject player = Instantiate(playerPrefab);
             player.SetActive(false); //so it doesnt render
             player.GetComponent<Player>().PlayerNumber = i;
-
+            player.GetComponentInChildren<EyeSelector>().SelectRandomEyes(); 
             //sprite resolver chooses sprite from sprite library, it is in the child Body of Player
             AddUISkinSelector(player.GetComponentInChildren<SpriteResolver>(), i); //so every player changes sprites separately according to what's chosen in the menu
             dummyPlayers.Add(player);

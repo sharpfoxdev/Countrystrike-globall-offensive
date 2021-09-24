@@ -46,12 +46,9 @@ MonoBehaviour:
     - m_Name: EyesAngry
       m_Hash: 1376336624
       m_Sprite: {fileID: 21300000, guid: 5ca34f079bbed7b4fb90be09226a05bf, type: 3}
-    - m_Name: EyesDead
-      m_Hash: -138953752
-      m_Sprite: {fileID: 21300000, guid: 307e4375e4dc7414fac3227fdc5c1c4c, type: 3}
-    - m_Name: EyesHappy
-      m_Hash: 740663200
-      m_Sprite: {fileID: 21300000, guid: bd86afc55369aa943bff95e4da8741bd, type: 3}
     - m_Name: EyesNormal
       m_Hash: 360282372
       m_Sprite: {fileID: 21300000, guid: 61e4e9674eaccae4a9db1c8d0953a1e5, type: 3}
+    - m_Name: EyesHappy
+      m_Hash: 740663200
+      m_Sprite: {fileID: 21300000, guid: bd86afc55369aa943bff95e4da8741bd, type: 3}
