@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 /// <summary>
 /// Small amount of ammo but speedy bullets
@@ -21,6 +22,19 @@ public class AK47 : Gun
         {
             GameObject newBullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
             newBullet.GetComponent<Bullet>().speed = bulletSpeed;
+            currentAmmo--;
+        }
+    }
+    /// <summary>
+    /// Spawns bullet and makes it move in the correct direction, network version
+    /// </summary>
+    public override void ShootNetwork()
+    {
+        if (currentAmmo > 0)
+        {
+            GameObject newBullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+            newBullet.GetComponent<Bullet>().speed = bulletSpeed;
+            NetworkServer.Spawn(newBullet);
             currentAmmo--;
         }
     }

@@ -4,16 +4,18 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Mirror;
 
 /// <summary>
 /// Handles moving of player
 /// </summary>
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public float speed;
     public float jump = 20f;
     public Transform feet;
     public LayerMask groundLayers;
+    public bool isNetworked = false; //to distinguish if this script is run in networked enviroment
 
     private bool facingRight = true;
     float movementX;
@@ -50,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         movementX = context.ReadValue<float>();
     }
 
+
     /// <summary>
     /// Gets triggered, when we press button to jump
     /// </summary>
@@ -62,8 +65,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     /// <summary>
-    /// Not currently in use, one of the prototypes of moving
+    /// Update used only in networked scenario, because we use there different input system
     /// </summary>
     void Update()
     {
@@ -71,12 +75,16 @@ public class PlayerMovement : MonoBehaviour
         //Vector3 currentPosition = transform.position;
         //currentPosition.x += movementX * speed * Time.deltaTime;
         //transform.position = currentPosition;
-        /*
-        movementX = Input.GetAxisRaw("Horizontal");
-        if (Input.GetButtonDown("Jump") && TouchesGround())
+
+        if (isNetworked && isLocalPlayer)
         {
-            Jump();
-        }*/
+            movementX = Input.GetAxisRaw("Horizontal");
+            if (Input.GetKeyDown(KeyCode.W) && TouchesGround())
+            {
+                Jump();
+            }
+        }
+
     }
 
     /// <summary>

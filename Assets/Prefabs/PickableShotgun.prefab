@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -6477192014399893405}
   - component: {fileID: 7425702844574194002}
   - component: {fileID: 6504681037380549745}
+  - component: {fileID: 505519425999469014}
   m_Layer: 0
   m_Name: PickableShotgun
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5389307477764779533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.1904144, y: 5.5594015, z: 0}
+  m_LocalPosition: {x: 14.134203, y: 2.5055082, z: 0}
   m_LocalScale: {x: 1.6697812, y: 1.558205, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -143,3 +144,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9116547, y: 1.0346625}
   m_EdgeRadius: 0
+--- !u!114 &505519425999469014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5389307477764779533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 6404f29f95e9f634599fd9e27fb8811e
+  hasSpawned: 0
