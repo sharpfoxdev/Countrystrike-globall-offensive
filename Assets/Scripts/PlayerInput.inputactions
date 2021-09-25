@@ -62,12 +62,34 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "negative",
+                    "id": "65c5a3ac-a9de-4ffc-941c-e6d837294e1f",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerNet",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "positive",
                     "id": "935dd963-ef89-4a6e-922d-555bcbaaf064",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "737096f8-f75f-4c3b-be14-e242114046f9",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerNet",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -184,6 +206,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c0c2f67e-ed86-4399-b7a2-b0b981457ea9",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerNet",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "b39ed24d-604d-4633-bceb-ff6822455a05",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -228,6 +261,17 @@
                 },
                 {
                     "name": "",
+                    "id": "fbb322f2-3671-4973-979c-f932f9b74fb2",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerNet",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a39ca4fc-630e-4058-8439-f6cc662dc779",
                     "path": "<Keyboard>/n",
                     "interactions": "",
@@ -266,6 +310,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
+                    "action": "ChangeWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1999591d-3047-4296-89e9-38c660c95514",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PlayerNet",
                     "action": "ChangeWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -343,6 +398,17 @@
         {
             "name": "Player4",
             "bindingGroup": "Player4",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "PlayerNet",
+            "bindingGroup": "PlayerNet",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
