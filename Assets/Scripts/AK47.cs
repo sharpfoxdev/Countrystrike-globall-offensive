@@ -28,6 +28,7 @@ public class AK47 : Gun
     /// <summary>
     /// Spawns bullet and makes it move in the correct direction, network version
     /// </summary>
+    [Command]
     public override void ShootNetwork()
     {
         if (currentAmmo > 0)

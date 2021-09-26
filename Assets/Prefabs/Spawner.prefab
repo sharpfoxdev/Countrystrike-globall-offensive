@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2002286488595143620}
   - component: {fileID: 2002286488595143619}
+  - component: {fileID: 7865241829606441770}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Spawner
@@ -48,3 +49,20 @@ MonoBehaviour:
   pickableShotgun: {fileID: 5389307477764779533, guid: 6404f29f95e9f634599fd9e27fb8811e,
     type: 3}
   gameArea: {fileID: 0}
+--- !u!114 &7865241829606441770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002286488595143618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 1
+  visible: 0
+  m_AssetId: ebe5eedd87222f34e90f18f5c8cb724d
+  hasSpawned: 0

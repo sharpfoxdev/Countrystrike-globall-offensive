@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5180909070067421629}
   - component: {fileID: 7719763147808951098}
-  - component: {fileID: 7910580719372641696}
+  - component: {fileID: 8994878558175433568}
   m_Layer: 0
   m_Name: m58b
   m_TagString: Untagged
@@ -239,7 +239,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7910580719372641696
+--- !u!114 &8994878558175433568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -248,17 +248,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1235551911666644558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6aa4539692c62ca4e899011b081a7911, type: 3}
+  m_Script: {fileID: 11500000, guid: d954f3e0ed66e48439748684fa0aacbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 8594375147508812390, guid: adf1548af29be954cb020e37f5ce1ac9,
-    type: 3}
-  Weapon: 2
-  FirePoint1: {fileID: 2519920516047557026}
-  FirePoint2: {fileID: 2649222679271842460}
-  FirePoint3: {fileID: 142904984510099440}
-  ammo: 4
-  currentAmmo: 0
+  weaponType: 2
 --- !u!1 &1699511566312209374
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +333,9 @@ GameObject:
   - component: {fileID: 7815807238288662232}
   - component: {fileID: 6149084297615376597}
   - component: {fileID: 6492348780511698810}
+  - component: {fileID: 479521548686859826}
+  - component: {fileID: 2578541304583468709}
+  - component: {fileID: 4811861945747810283}
   m_Layer: 0
   m_Name: PlayerNet
   m_TagString: Player
@@ -613,6 +609,65 @@ MonoBehaviour:
   Glock: {fileID: 8509494549423617736}
   M58B: {fileID: 1235551911666644558}
   isNetworked: 1
+--- !u!114 &479521548686859826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382248909435111839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa4539692c62ca4e899011b081a7911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  BulletPrefab: {fileID: 8594375147508812390, guid: adf1548af29be954cb020e37f5ce1ac9,
+    type: 3}
+  Weapon: 2
+  FirePoint1: {fileID: 2519920516047557026}
+  FirePoint2: {fileID: 2649222679271842460}
+  FirePoint3: {fileID: 142904984510099440}
+  ammo: 4
+  currentAmmo: 0
+--- !u!114 &2578541304583468709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382248909435111839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5590d3f8b108d047bffe483e6251f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  BulletPrefab: {fileID: 8594375147508812390, guid: adf1548af29be954cb020e37f5ce1ac9,
+    type: 3}
+  Weapon: 0
+  FirePoint: {fileID: 6174383358213759818}
+--- !u!114 &4811861945747810283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382248909435111839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d959548a6a143b946bdc84d2eba6a65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  BulletPrefab: {fileID: 8594375147508812390, guid: adf1548af29be954cb020e37f5ce1ac9,
+    type: 3}
+  Weapon: 1
+  FirePoint: {fileID: 8731754051830456375}
+  MaxAmmo: 6
 --- !u!1 &5341281331129096407
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9108469733437807652}
   - component: {fileID: 7883953625676519362}
-  - component: {fileID: 142727440499115072}
+  - component: {fileID: 8429433631297862201}
   m_Layer: 0
   m_Name: AK47object
   m_TagString: Untagged
@@ -726,7 +781,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &142727440499115072
+--- !u!114 &8429433631297862201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -735,14 +790,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5586321978594180676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d959548a6a143b946bdc84d2eba6a65d, type: 3}
+  m_Script: {fileID: 11500000, guid: d954f3e0ed66e48439748684fa0aacbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 8594375147508812390, guid: adf1548af29be954cb020e37f5ce1ac9,
-    type: 3}
-  Weapon: 1
-  FirePoint: {fileID: 8731754051830456375}
-  MaxAmmo: 6
+  weaponType: 1
 --- !u!1 &6915733782530527106
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +1027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8425324888021971042}
   - component: {fileID: 5423169246319374876}
-  - component: {fileID: 6466814007770222115}
+  - component: {fileID: 6276279725649503883}
   m_Layer: 0
   m_Name: glock
   m_TagString: Untagged
@@ -1049,7 +1100,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6466814007770222115
+--- !u!114 &6276279725649503883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1058,13 +1109,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8509494549423617736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5590d3f8b108d047bffe483e6251f93, type: 3}
+  m_Script: {fileID: 11500000, guid: d954f3e0ed66e48439748684fa0aacbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 8594375147508812390, guid: adf1548af29be954cb020e37f5ce1ac9,
-    type: 3}
-  Weapon: 0
-  FirePoint: {fileID: 6174383358213759818}
+  weaponType: 0
 --- !u!1 &8793625594678486694
 GameObject:
   m_ObjectHideFlags: 0

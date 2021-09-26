@@ -21,6 +21,7 @@ public class glock : Gun
     /// <summary>
     /// Created bullet, it uses it's basic speed, network version
     /// </summary>
+    [Command]
     public override void ShootNetwork()
     {
         GameObject newBullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);

@@ -45,7 +45,7 @@ public class Weapon : NetworkBehaviour
     {
         if (context.action.triggered)
         {
-            switch (currentWeapon.GetComponent<Gun>().Weapon)
+            switch (currentWeapon.GetComponent<Gun>().Weapon) 
             {
                 case WeaponsEnum.AK47:
                     currentWeapon.GetComponent<AK47>().Shoot();
@@ -128,16 +128,16 @@ public class Weapon : NetworkBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))//weapon shooting
         {
-            switch (currentWeapon.GetComponent<Gun>().Weapon)
+            switch (currentWeapon.GetComponent<WeaponTypeNetwork>().weaponType) //using new script WeaponTypeNetwork to get information on gun type that we hold, as we moved gun scripts to the root
             {
                 case WeaponsEnum.AK47:
-                    currentWeapon.GetComponent<AK47>().ShootNetwork();
+                    GetComponent<AK47>().ShootNetwork();
                     break;
                 case WeaponsEnum.Glock:
-                    currentWeapon.GetComponent<glock>().ShootNetwork();
+                    GetComponent<glock>().ShootNetwork();
                     break;
                 case WeaponsEnum.M58B:
-                    currentWeapon.GetComponent<m58b>().ShootNetwork();
+                    GetComponent<m58b>().ShootNetwork();
                     break;
                 default:
                     break;

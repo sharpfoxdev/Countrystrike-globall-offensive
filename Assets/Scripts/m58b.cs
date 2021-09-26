@@ -31,6 +31,7 @@ public class m58b : Gun
     /// <summary>
     /// Spawns three bullets in correct firepoints, network version
     /// </summary>
+    [Command]
     public override void ShootNetwork()
     {
         if (currentAmmo > 0)

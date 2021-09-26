@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7425702844574194002}
   - component: {fileID: 6504681037380549745}
   - component: {fileID: 505519425999469014}
+  - component: {fileID: -4517780023157347334}
   m_Layer: 0
   m_Name: PickableShotgun
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5389307477764779533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.134203, y: 2.5055082, z: 0}
+  m_LocalPosition: {x: 5.7884803, y: -5.924203, z: 0}
   m_LocalScale: {x: 1.6697812, y: 1.558205, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -161,3 +162,32 @@ MonoBehaviour:
   visible: 0
   m_AssetId: 6404f29f95e9f634599fd9e27fb8811e
   hasSpawned: 0
+--- !u!114 &-4517780023157347334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5389307477764779533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  bufferTimeMultiplier: 3
+  bufferSizeLimit: 64
+  catchupThreshold: 6
+  catchupMultiplier: 0.1
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
